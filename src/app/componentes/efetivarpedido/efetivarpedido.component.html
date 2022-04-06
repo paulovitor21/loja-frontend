@@ -1,0 +1,103 @@
+<div class="container">
+    <div id="divBusca" class="row">
+        <div class="col-xs-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
+            <div class="mb-3">
+                <label for="txtTelefone" class="form-label">Seu Whatsapp</label>
+                <input type="txt" class="form-control" id="txtTelefone" [(ngModel)] ="cliente.telefone">
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+            <button type="button" id="btnBuscar" (click)="buscarTelefone()" class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+    <br>
+    <div id="divDetalhes" *ngIf="visivel">
+        <div class="row" *ngIf="achou == false">
+            <div class="col-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Seja Bem-vindo!</strong> Cadastre-se e seja nosso cliente especial 😙
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="txtNome" class="form-label">Nome Completo</label>
+            <input type="txt" class="form-control" id="txtNome" [(ngModel)] ="cliente.nome">
+        </div>
+
+        <div class="mb-3">
+            <label for="txtEmail" class="form-label">E-mail</label>
+            <input type="txt" class="form-control" id="txtEmail" [(ngModel)] ="cliente.email">
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
+                <div class="mb-3">
+                    <label for="txtCEP" class="form-label">CEP</label>
+                    <input type="txt" class="form-control" id="txtCEP" [(ngModel)] ="cliente.cep">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+                <!--(click)="buscarCep()"-->
+                <button type="button" id="btnCep" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="txtLogradouro" class="form-label">Logradouro</label>
+            <input type="txt" class="form-control" id="txtLogradouro" [(ngModel)] ="cliente.logradouro" placeholder="Av. Rua">
+        </div>
+        
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtNumero" class="form-label">Número</label>
+                    <input type="txt" class="form-control" id="txtNumero" [(ngModel)] ="cliente.numero">
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtComplemento" class="form-label">Complemento</label>
+                    <input type="txt" class="form-control" id="txtComplemento" [(ngModel)] ="cliente.complemento">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtBairro" class="form-label">Bairro</label>
+                    <input type="txt" class="form-control" id="txtBairro" [(ngModel)] ="cliente.bairro">
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="txtCidade" class="form-label">Cidade</label>
+                    <input type="txt" class="form-control" id="txtCidade" [(ngModel)] ="cliente.cidade">
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="mb-3">
+                    <label for="txtEstado" class="form-label">UF</label>
+                    <input type="txt" class="form-control" id="txtComplemento" [(ngModel)] ="cliente.estado">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="txtObservacao" class="form-label">Observação do seu pedido</label>
+                <input type="txt" class="form-control" id="txtObservacao" [(ngModel)]="pedido.observacoes" placeholder="Deseja acrescentar informações adicionais">
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-end">
+                    <button type="button" class="btn btn-primary" (click)="finalizarCompra()">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
