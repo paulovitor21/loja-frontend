@@ -1,13 +1,33 @@
+<!-- Modal quando cpf for inválido -->
+<div class="modal" tabindex="-1" id="modalErrorCPF">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Erro no CPF</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>O CPF informado é inválido.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="container">
+    <button id="btnModal" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#modalErrorCPF"></button>
     <div id="divBusca" class="row">
         <div class="col-xs-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
             <div class="mb-3">
-                <label for="txtTelefone" class="form-label">Seu Whatsapp</label>
-                <input type="txt" class="form-control" id="txtTelefone" [(ngModel)] ="cliente.telefone">
+                <label for="txtCPF" class="form-label">Seu CPF</label>
+                <input type="txt" class="form-control" id="txtCPF" [(ngModel)]="cliente.cpf">
             </div>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-            <button type="button" id="btnBuscar" (click)="buscarTelefone()" class="btn btn-primary">Buscar</button>
+            <button type="button" id="btnBuscar" (click)="buscarCPF()" class="btn btn-primary">Buscar</button>
         </div>
     </div>
     <br>
@@ -23,18 +43,18 @@
 
         <div class="mb-3">
             <label for="txtNome" class="form-label">Nome Completo</label>
-            <input type="txt" class="form-control" id="txtNome" [(ngModel)] ="cliente.nome">
+            <input type="txt" class="form-control" id="txtNome" [(ngModel)]="cliente.nome">
         </div>
 
         <div class="mb-3">
             <label for="txtEmail" class="form-label">E-mail</label>
-            <input type="txt" class="form-control" id="txtEmail" [(ngModel)] ="cliente.email">
+            <input type="txt" class="form-control" id="txtEmail" [(ngModel)]="cliente.email">
         </div>
         <div class="row">
             <div class="col-xs-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
                 <div class="mb-3">
                     <label for="txtCEP" class="form-label">CEP</label>
-                    <input type="txt" class="form-control" id="txtCEP" [(ngModel)] ="cliente.cep">
+                    <input type="txt" class="form-control" id="txtCEP" [(ngModel)]="cliente.cep">
                 </div>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
@@ -45,51 +65,53 @@
 
         <div class="mb-3">
             <label for="txtLogradouro" class="form-label">Logradouro</label>
-            <input type="txt" class="form-control" id="txtLogradouro" [(ngModel)] ="cliente.logradouro" placeholder="Av. Rua">
+            <input type="txt" class="form-control" id="txtLogradouro" [(ngModel)]="cliente.logradouro"
+                placeholder="Av. Rua">
         </div>
-        
+
         <div class="row">
             <div class="col-6">
                 <div class="mb-3">
                     <label for="txtNumero" class="form-label">Número</label>
-                    <input type="txt" class="form-control" id="txtNumero" [(ngModel)] ="cliente.numero">
+                    <input type="txt" class="form-control" id="txtNumero" [(ngModel)]="cliente.numero">
                 </div>
             </div>
 
             <div class="col-6">
                 <div class="mb-3">
                     <label for="txtComplemento" class="form-label">Complemento</label>
-                    <input type="txt" class="form-control" id="txtComplemento" [(ngModel)] ="cliente.complemento">
+                    <input type="txt" class="form-control" id="txtComplemento" [(ngModel)]="cliente.complemento">
                 </div>
             </div>
         </div>
 
         <div class="row">
-            
+
             <div class="col-6">
                 <div class="mb-3">
                     <label for="txtBairro" class="form-label">Bairro</label>
-                    <input type="txt" class="form-control" id="txtBairro" [(ngModel)] ="cliente.bairro">
+                    <input type="txt" class="form-control" id="txtBairro" [(ngModel)]="cliente.bairro">
                 </div>
             </div>
-            
+
             <div class="col-4">
                 <div class="mb-3">
                     <label for="txtCidade" class="form-label">Cidade</label>
-                    <input type="txt" class="form-control" id="txtCidade" [(ngModel)] ="cliente.cidade">
+                    <input type="txt" class="form-control" id="txtCidade" [(ngModel)]="cliente.cidade">
                 </div>
             </div>
 
             <div class="col-2">
                 <div class="mb-3">
                     <label for="txtEstado" class="form-label">UF</label>
-                    <input type="txt" class="form-control" id="txtComplemento" [(ngModel)] ="cliente.estado">
+                    <input type="txt" class="form-control" id="txtComplemento" [(ngModel)]="cliente.estado">
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="txtObservacao" class="form-label">Observação do seu pedido</label>
-                <input type="txt" class="form-control" id="txtObservacao" [(ngModel)]="pedido.observacoes" placeholder="Deseja acrescentar informações adicionais">
+                <input type="txt" class="form-control" id="txtObservacao" [(ngModel)]="pedido.observacoes"
+                    placeholder="Deseja acrescentar informações adicionais">
             </div>
 
             <div class="row">
@@ -98,6 +120,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
