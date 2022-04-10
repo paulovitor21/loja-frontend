@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CarrinhoService } from 'src/app/servicos/carrinho.service';
 
 @Component({
   selector: 'app-recibo',

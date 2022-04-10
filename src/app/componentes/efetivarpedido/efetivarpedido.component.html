@@ -3,11 +3,11 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Erro no CPF</h5>
+          <h5 class="modal-title">Erro no Formulário</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>O CPF informado é inválido.</p>
+          <p>{{ mensagemErro }}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
@@ -31,12 +31,15 @@
         </div>
     </div>
     <br>
+    
+    
     <div id="divDetalhes" *ngIf="visivel">
+        <!--Mensagem de boas vindas-->
         <div class="row" *ngIf="achou == false">
             <div class="col-12">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <strong>Seja Bem-vindo!</strong> Cadastre-se e seja nosso cliente especial 😙
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" class="btn-close" (click)="ocultaAlert()" aria-label="Close"></button>
                 </div>
             </div>
         </div>
@@ -50,6 +53,12 @@
             <label for="txtEmail" class="form-label">E-mail</label>
             <input type="txt" class="form-control" id="txtEmail" [(ngModel)]="cliente.email">
         </div>
+
+        <div class="mb-3">
+            <label for="txtTelefone" class="form-label">Seu whatsapp</label>
+            <input type="txt" class="form-control" id="txtTelefone" [(ngModel)]="cliente.telefone">
+        </div>
+
         <div class="row">
             <div class="col-xs-8 col-sm-8 col-md-9 col-lg-10 col-xl-10">
                 <div class="mb-3">
@@ -58,8 +67,7 @@
                 </div>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2 col-xl-2">
-                <!--(click)="buscarCep()"-->
-                <button type="button" id="btnCep" class="btn btn-primary">Pesquisar</button>
+        <button type="button" id="btnCep" (click)="buscarCEP()" class="btn btn-primary">Pesquisar</button>
             </div>
         </div>
 

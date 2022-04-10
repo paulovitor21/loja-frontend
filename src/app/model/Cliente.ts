@@ -11,4 +11,16 @@ export class Cliente {
     public bairro: string;
     public cidade: string;
     public estado: string;
+
+    public reset(): void {
+        this.nome = "";
+        this.bairro = "";
+        this.cep = "";
+        this.cidade = "";
+        this.email= "";
+        this.telefone="";
+        this.estado = "";
+        this.numero = ""
+        this.logradouro = "";
+    }
 }

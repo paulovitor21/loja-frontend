@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/Cliente';
+import { EnderecoCEP } from 'src/app/model/EnderecoCEP';
 import { Pedido } from 'src/app/model/Pedido';
+import { BuscarcepService } from 'src/app/servicos/buscarcep.service';
+import { CarrinhoService } from 'src/app/servicos/carrinho.service';
 import { ClienteService } from 'src/app/servicos/cliente.service';
 import { PedidoService } from 'src/app/servicos/pedido.service';
 
@@ -15,9 +18,12 @@ export class EfetivarpedidoComponent implements OnInit {
   public pedido: Pedido;
   public achou: boolean;
   public visivel: boolean;
+  public mensagemErro: string;
   
   constructor(private cliService: ClienteService, 
               private pedService: PedidoService,
+              private cepService: BuscarcepService,
+              private carService: CarrinhoService,
               private router: Router) { 
     this.cliente = new Cliente();
     this.pedido = new Pedido();
@@ -78,6 +84,7 @@ export class EfetivarpedidoComponent implements OnInit {
 
   public buscarCPF() {
     if (!this.isCPFValid()) {
+      this.mensagemErro = "O CPF informado é inválido!";
       document.getElementById("btnModal").click();
       return;
     }
@@ -91,13 +98,41 @@ export class EfetivarpedidoComponent implements OnInit {
       },
       (err) => {
         if (err.status == 404) {
-          // deu certo, mas a pesquisa não encontrou o cliente com esse numero de telefone = logo, novo cliente
-          this.visivel = true;
-          //alert("Você é novo por aqui!");
+            this.achou = false;
+            // deu certo, mas a pesquisa não encontrou o cliente com esse cpf = é novo cliente
+            this.visivel = true;
+            this.cliente.nome = "";
+            this.cliente.bairro = "";
+            this.cliente.cep = "";
+            this.cliente.cidade = "";
+            this.cliente.email = "";
+            this.cliente.telefone = "";
+            this.cliente.estado = "";
+            this.cliente.numero = ""
+            this.cliente.logradouro = "";
+            this.cliente.complemento = "";
         }
         else {
-          //alert("Falha na requisao" + err);
+          alert("Erro desconhecido " + err);
         }
+      });
+  }
+
+  public ocultaAlert() {
+    this.achou = true;
+  }
+
+  public buscarCEP() {
+    this.cepService.buscarCEP(this.cliente.cep)
+    .subscribe((res: EnderecoCEP) => {
+        this.cliente.logradouro = res.logradouro;
+        this.cliente.cidade = res.localidade;
+        this.cliente.bairro = res.bairro;
+        this.cliente.estado = res.uf;
+      },
+      (err) => {
+        this.mensagemErro = "CEP inválido!";
+        document.getElementById("btnModal").click();
       });
   }
 
@@ -113,8 +148,9 @@ export class EfetivarpedidoComponent implements OnInit {
 
     this.pedService.inserirNovoPedido(this.pedido).subscribe(
       (res: Pedido) => {
-        alert("Pedido efetivado = numero " + res.idPedido);
+        //alert("Pedido efetivado = numero " + res.idPedido);
         localStorage.removeItem("ShoppingCart");
+        this.carService.getNumberOfItens().next(0);
         this.router.navigate(["/recibo/", res.idPedido]);
       },
       (err) => {
