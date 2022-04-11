@@ -3,6 +3,7 @@ export class Cliente {
     public nome: string;
     public email: string;
     public telefone: string;
+    public dataNasc: string;
     public cpf: string;
     public cep: string;
     public logradouro: string;
@@ -19,6 +20,7 @@ export class Cliente {
         this.cidade = "";
         this.email= "";
         this.telefone="";
+        this.dataNasc= "";
         this.estado = "";
         this.numero = ""
         this.logradouro = "";

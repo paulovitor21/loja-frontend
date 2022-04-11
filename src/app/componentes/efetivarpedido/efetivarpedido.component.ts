@@ -19,6 +19,9 @@ export class EfetivarpedidoComponent implements OnInit {
   public achou: boolean;
   public visivel: boolean;
   public mensagemErro: string;
+  public msgEndereco: string;
+  public exibirPerguntaEndereco: boolean;
+  public exibirFormEndereco: boolean;
   
   constructor(private cliService: ClienteService, 
               private pedService: PedidoService,
@@ -29,9 +32,28 @@ export class EfetivarpedidoComponent implements OnInit {
     this.pedido = new Pedido();
     this.achou = false;
     this.visivel = false;
+    this.exibirFormEndereco = false;
+    this.exibirPerguntaEndereco = true;
+    this.msgEndereco = "";
   }
 
   ngOnInit(): void {
+  }
+  public exibirForm() {
+    this.exibirPerguntaEndereco = false;
+    this.exibirFormEndereco = true;
+    this.cliente.cep = "";
+    this.cliente.logradouro = "";
+    this.cliente.numero = "";
+    this.cliente.complemento = "";
+    this.cliente.cidade = "";
+    this.cliente.bairro = "";
+    this.cliente.estado = "";
+  }
+
+  public ocultarForm() {
+    this.exibirPerguntaEndereco = false;
+    this.exibirFormEndereco = false;
   }
 
   public isCPFValid(): boolean {
@@ -93,7 +115,8 @@ export class EfetivarpedidoComponent implements OnInit {
       .subscribe((cli:Cliente) => {
         this.cliente = cli;
         this.achou = true;
-        console.log(this.cliente);
+        this.msgEndereco = cli.logradouro.substring(0,10) + " *************** "; 
+        //console.log(this.cliente);
         this.visivel = true;
       },
       (err) => {
@@ -144,7 +167,7 @@ export class EfetivarpedidoComponent implements OnInit {
     this.pedido.cliente = this.cliente;
     this.pedido.status = 0; // pedido inicial
 
-    console.log(this.pedido);
+    //console.log(this.pedido);
 
     this.pedService.inserirNovoPedido(this.pedido).subscribe(
       (res: Pedido) => {
