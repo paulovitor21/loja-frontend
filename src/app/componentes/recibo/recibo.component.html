@@ -14,6 +14,22 @@
     <div class="row">
         <div class="col-12 text-center">
             <p>Seu pedido foi finalizado com sucesso e está em análise. Sua compra estará concretizada apenas quando você receber a confirmação que seu pedido foi aprovado, o que normalmente acontece dentro de algumas horas. Se você tiver dúvidas sobre o seu pedido, você pode enviar um e-mail para megastore@mega.com.br ou ligue para 92 984305052.</p>
+            <h5>Resumo das suas compras</h5>
         </div>
     </div>
+
+    <table class="table mb-3">
+        <thead class="text-center">
+            <th></th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let ITEM of detalhePedido.itensPedido"> 
+                <td><img src="{{ ITEM.produto.linkFoto}}" width="20%" alt="imagem do produto"></td>
+                <td>{{ ITEM.produto.nome}}</td>
+                <td> {{ ITEM.qtdeItem}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

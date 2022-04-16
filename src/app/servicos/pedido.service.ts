@@ -12,4 +12,8 @@ export class PedidoService {
   public inserirNovoPedido(novoPedido: Pedido) {
     return this.http.post("http://localhost:8080/pedido", novoPedido);
   }
+
+  public recuperarPedidoPeloId(idPedido: number) {
+    return this.http.get("http://localhost:8080/pedido/search/" + idPedido);
+  }
 }

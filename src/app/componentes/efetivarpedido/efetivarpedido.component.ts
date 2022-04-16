@@ -39,6 +39,7 @@ export class EfetivarpedidoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   public exibirForm() {
     this.exibirPerguntaEndereco = false;
     this.exibirFormEndereco = true;
@@ -112,11 +113,10 @@ export class EfetivarpedidoComponent implements OnInit {
     }
 
     this.cliService.buscarClientePeloCPF(this.cliente.cpf)
-      .subscribe((cli:Cliente) => {
+      .subscribe((cli: Cliente) => {
         this.cliente = cli;
         this.achou = true;
         this.msgEndereco = cli.logradouro.substring(0,10) + " *************** "; 
-        //console.log(this.cliente);
         this.visivel = true;
       },
       (err) => {
@@ -134,13 +134,16 @@ export class EfetivarpedidoComponent implements OnInit {
             this.cliente.numero = ""
             this.cliente.logradouro = "";
             this.cliente.complemento = "";
+            this.exibirPerguntaEndereco = false;
+            this.exibirFormEndereco = true;
         }
         else {
           alert("Erro desconhecido " + err);
         }
       });
   }
-
+  
+  
   public ocultaAlert() {
     this.achou = true;
   }
