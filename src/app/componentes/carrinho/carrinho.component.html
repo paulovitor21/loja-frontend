@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h3>Seu carrinho</h3>
+            <h3>Meu Carrinho</h3>
         </div>
     </div>
     <div class="row" *ngIf="vazio == true">
@@ -9,7 +9,7 @@
             <h3>Seu carrinho está vazio</h3>
         </div>
     </div>
-
+    
     <div id="itens" *ngIf="vazio == false">
         
         <div class="row itemPedido" *ngFor="let ITEM of pedido.itensPedido">
@@ -18,7 +18,7 @@
             </div>
 
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-5 col-xl-5">
-                <label for="nome">Produtos</label>
+                <label for="nome" class="text-center">Produtos</label>
                 <h4 id="nome">{{ ITEM.produto.nome}}</h4>
             </div>
 
@@ -41,19 +41,19 @@
         </div>
         
         <div class="row">
-            <div class="col-12 text-end">
+            <div class="col-12 text-center">
                 <br>
                 <h3>Valor Total: {{pedido.valorTotal | currency: 'BRL'}}</h3>
             </div>
         </div>
         
         <div class="row mb-3" *ngIf="pedido != null && pedido.itensPedido.length > 0">
-            <div class="col-6 text-end">
-              <button class="btn btn-primary" (click)="continuar()">Continuar comprando</button>
+            <div class="col-6 text-center">
+              <button class="btn" (click)="continuar()">Comprar Mais</button>
             </div>
 
-            <div class="col-6 text-end">
-                <button class="btn btn-primary" (click)="efetivar()">Finalizar Compra</button>
+            <div class="col-6 text-center">
+                <button class="btn" (click)="efetivar()">Finalizar Compra</button>
               </div>
           </div>
     </div>

@@ -5,3 +5,30 @@
 h4, h5 {
     padding-top: 1em;
 }
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 48px;
+    color: #575468;
+}
+
+label {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;   
+}
+
+.btn {
+    background-color: #5D0083;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+}

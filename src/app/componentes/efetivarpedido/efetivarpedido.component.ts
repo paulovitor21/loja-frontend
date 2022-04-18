@@ -116,7 +116,7 @@ export class EfetivarpedidoComponent implements OnInit {
       .subscribe((cli: Cliente) => {
         this.cliente = cli;
         this.achou = true;
-        this.msgEndereco = cli.logradouro.substring(0,10) + " *************** "; 
+        this.msgEndereco = cli.logradouro.substring(0,5) + " ******* "; 
         this.visivel = true;
       },
       (err) => {
