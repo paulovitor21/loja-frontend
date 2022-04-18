@@ -1,27 +1,9 @@
-# LojaFrontend
+![Vitrine Tech](https://github.com/paulovitor21/loja-frontend/blob/main/src/assets/logo-loja.PNG)
+##
+A Vitrine Tech é um mini E-commerce que tem por finalidade servir como apoio para as vendas de um pequeno logista. Uma forma de divulgação de produtos (Catálogo online) e também retenção de pedidos e clientes. Ela funciona como um microserviço, pelo qual o cliente pode ter acesso por meio do site. O sistema foi desenvolvida na Universidade do Amazonas, <!--por alunos do curso de Engenharia de Software--> dentro das disciplinas de Engenharia de software A e Engenharia de Software B.
+##
+[Documentação do Projeto](https://fga-eps-mds.github.io/2018.2-IndicaAi/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
