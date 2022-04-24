@@ -8,7 +8,7 @@ import { ProdutoService } from 'src/app/servicos/produto.service';
   styleUrls: ['./destaques.component.css']
 })
 export class DestaquesComponent implements OnInit {
-  public lista!: Produto[];
+  public lista: Produto[];
 
 
   // preciso injetar o servico que busca o produto
@@ -17,11 +17,13 @@ export class DestaquesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.service.getAllProdutos()
-        .subscribe((res: Produto[]) => {
-                      this.lista = res;
-             },
-             err => console.log(err));
+     this.service.getAllProdutos().subscribe(
+       (res: Produto[]) => {
+          this.lista = res;
+        },
+      (err) => {
+        console.log(err)
+      });
   }
 
 }
