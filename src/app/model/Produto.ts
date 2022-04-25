@@ -6,7 +6,8 @@ export class Produto {
     public detalhe: string;
     public linkFoto: string;
     public preco: number;
-    //public precoPromo!: number;
+    public precoPromo: number;
     public disponivel: number;
+    public prontaEntrega: number;
     public categoria: Categoria
 }

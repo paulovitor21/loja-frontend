@@ -29,16 +29,25 @@
 .card-subtitle {
     font-family: 'Poppins', sans-serif;
     font-style: 400;
-    font-size: 26px;
-    line-height: 10px;
-    color: #7eadde;
+    font-size: 15px;
+    line-height: 25px;
+    color: #2087b9;
 }
+
 
 .card-text {
     font-family: 'Poppins', sans-serif;
     font-style: 400;
     font-size: 12px;
     line-height: 20px;
+    color: #3e3e3e;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-style: 400;
+    font-size: 8px;
+    line-height: 25px;
     color: #3e3e3e;
 }
 
@@ -54,3 +63,4 @@
     font-size: 16px;
     line-height: 21px;
 }
+

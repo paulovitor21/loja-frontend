@@ -48,7 +48,7 @@ export class DetalhesComponent implements OnInit {
     item = new ItemPedido();
     item.qtdeItem = this.quantidade;
     item.produto = this.produtoDetalhe;
-    item.precoUnitario = this.produtoDetalhe.preco;
+    item.precoUnitario = this.produtoDetalhe.precoPromo;
     item.precoTotal = item.precoUnitario * item.qtdeItem;
     
     pedido.itensPedido.push(item);
